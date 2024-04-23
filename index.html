@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap">
+
+
+
+  <title>Khadija elhabchi | Card Form</title>
+
+
+  <style>
+    body {
+      background-color: #202632;
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 600;
+      color: black;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0;
+      max-height: 100vh;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: row;
+      margin: 50px auto;
+    }
+
+    .C1 {
+      flex: 1;
+      width: 20%;
+      height: 500px;
+      padding: 10em;
+      background-image: url(images/bg-main-desktop.png);
+      background-size: cover;
+    }
+
+    .C2 {
+      flex: 2;
+      width: 800px;
+      height: 500px;
+      background-color: white;
+      margin: auto;
+      padding: 10em;
+    }
+
+    form {
+      width: 100%;
+    }
+
+    form label,
+    form input[type="text"],
+    form input[type="number"],
+    form input[type="submit"] {
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    form input {
+      padding: 15px;
+      width: 100%;
+      border: solid 1px rgb(175, 175, 175);
+      border-radius: 10px;
+    }
+
+    form input:hover,
+    :focus {
+      border: solid 1px rgb(199, 34, 199);
+    }
+
+    .line {
+      display: flex;
+      flex-direction: row;
+    }
+
+    .in {
+      flex: 1;
+    }
+
+    .in input {
+      width: 80%;
+    }
+
+    .a {
+      display: flex;
+      flex-direction: row;
+    }
+
+    .a1 {
+      flex: 1;
+    }
+
+    .b {
+      display: flex;
+      flex-direction: row;
+    }
+
+    .b1 {
+      flex: 1;
+      color: #d3dbe2;
+    }
+
+    #bb p {
+      margin-left: 120px !important;
+    }
+
+    h2 {
+      color: #d3dbe2;
+      margin-top: 20px;
+    }
+
+    .a1 input {
+      width: 60%;
+    }
+
+    #send {
+      padding: 1em 6em;
+      background-color: black;
+      color: #d3dbe2;
+      border-radius: 10px;
+      width: 100%;
+    }
+
+    .attribution {
+      position: fixed;
+      bottom: 0;
+      left: 35%;
+      color: white;
+    }
+
+    a {
+      text-decoration: none;
+      color: rgb(182, 120, 239);
+    }
+
+    .front-card {
+      background-image: url(images/bg-card-front.png);
+      background-size: cover;
+      width: 300px;
+      height: 150px;
+      position: absolute;
+      top: 20%;
+      left: 30%;
+      border-radius: 15px;
+      padding: 2em;
+      box-shadow: 11px 11px 30px -15px rgba(0, 0, 0, 0.7);
+    }
+
+    .back-card {
+      background-image: url(images/bg-card-back.png);
+      background-size: cover;
+      width: 300px;
+      height: 150px;
+      position: absolute;
+      top: 50%;
+      left: 32%;
+      border-radius: 15px;
+      padding: 2em;
+      box-shadow: 11px 11px 30px -15px rgba(0, 0, 0, 0.7);
+    }
+
+    .back-card p {
+      margin-top: 63px;
+      margin-left: 280px;
+      color: #d3dbe2;
+    }
+
+
+    .error {
+      color: red;
+      font-size: 0.8rem;
+      margin-top: 0.5rem;
+    }
+
+    .error-border {
+      border: 1px solid red;
+    }
+
+    .C3 {
+      flex: 2;
+      width: 800px;
+      height: 500px;
+      background-color: white;
+      margin: auto;
+      padding: 10em;
+      display: none;
+      text-align: center;
+    }
+
+    .C3 h1 {
+      color: #200d2a;
+    }
+
+    .C3 p {
+      color: #959396;
+    }
+
+    #done {
+      padding: 1em 6em;
+      background-color: black;
+      color: #d3dbe2;
+      border-radius: 10px;
+      width: 100%;
+      margin-top: 20px;
+    }
+
+    @media screen and (max-width: 760px) {
+      .C1 {
+        display: none;
+      }
+
+      .C2 {
+        width: 300px;
+        padding: 10em 6em 0.1em 6em;
+        margin-top: 200px;
+      }
+
+      .C3 {
+        width: 300px;
+        padding: 10em 6em 0.1em 6em;
+        margin-top: 200px;
+      }
+
+      .C3 img {
+        margin-top: 30px;
+      }
+
+      .back-card {
+        top: 5%;
+        left: 25%;
+      }
+
+      .front-card {
+        top: 20%;
+        left: 10%;
+        z-index: 1;
+      }
+
+      .attribution{
+        left: 2%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+    <div class="C1">
+    </div>
+    <div class="C2">
+      <form action="">
+        <label for="name">CARDHOLDER NAME</label>
+        <input type="text" placeholder="e.g. Jane Appleseed" id="name"> <br>
+        <label for="number">CARD NUMBER</label>
+        <input type="number" placeholder="e.g. 1234 5678 9123 0000" id="number"> <br>
+        <div class="line">
+          <div class="in">
+            <label for="date">EXP. DATE (MM/YY)</label>
+            <div class="a">
+              <div class="a1"><input type="number" placeholder="MM" id="mm"></div>
+              <div class="a1"><input type="number" placeholder="YY" id="yy"></div>
+            </div>
+          </div>
+          <div class="in">
+            <label for="cvc">CVC</label>
+            <input type="number" placeholder="e.g. 123" id="cvc"> <br>
+          </div>
+        </div>
+        <input type="submit" id="send" name="Confirm" value="Confirm">
+      </form>
+    </div>
+
+    <div class="C3">
+      <img src="images/icon-complete.svg" alt="Done">
+      <h1>THANK YOU!</h1>
+      <p>We've added your card details</p>
+      <input type="submit" name="Continue" id="done" value="Continue">
+    </div>
+
+    <div class="front-card">
+      <img src="images/card-logo.svg" alt="logo">
+      <H2 id="number-show">0000 0000 0000 0000</H2>
+      <div class="b">
+        <div class="b1">
+          <p id="name-show">NAME</p>
+        </div>
+        <div class="b1" id="bb">
+          <p id="date-show">00/00</p>
+        </div>
+      </div>
+
+
+    </div>
+    <div class="back-card">
+      <p id="cvc-show">000</p>
+    </div>
+  </div>
+
+
+
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+    Coded by <a href="https://khadija99-tech.github.io/MyPortfolio/">Elhabchi Khadija</a>.
+  </div>
+
+
+  <script>
+    // Function to update card details
+    function updateCardDetails() {
+      const name = document.getElementById('name').value;
+      const cardNumber = document.getElementById('number').value;
+      const mm = document.getElementById('mm').value;
+      const yy = document.getElementById('yy').value;
+      const cvc = document.getElementById('cvc').value;
+
+      // Format card number with spaces after every four digits
+      const formattedCardNumber = cardNumber.replace(/\D/g, '').replace(/(\d{4})(?=\d)/g, '$1 ');
+
+      // Update card details on the front card
+      document.getElementById('number-show').innerText = formattedCardNumber ? formattedCardNumber : '0000 0000 0000 0000';
+      document.getElementById('name-show').innerText = name ? name.toUpperCase() : 'NAME';
+      document.getElementById('date-show').innerText = `${mm ? mm.padStart(2, '0') : 'MM'}/${yy ? yy.padStart(2, '0') : 'YY'}`;
+      document.getElementById('cvc-show').innerText = cvc ? cvc : '000';
+    }
+
+    // Function to validate form inputs
+    function validateForm(event) {
+      event.preventDefault(); // Prevent form submission
+
+      // Get form inputs
+      const nameInput = document.getElementById('name');
+      const cardNumberInput = document.getElementById('number');
+      const mmInput = document.getElementById('mm');
+      const yyInput = document.getElementById('yy');
+      const cvcInput = document.getElementById('cvc');
+
+      // Initialize error flag
+      let hasError = false;
+
+      // Validate name input
+      if (!nameInput.value) {
+        showError(nameInput, 'Please enter cardholder name');
+        hasError = true;
+      } else {
+        removeError(nameInput);
+      }
+
+      // Validate card number input
+      if (cardNumberInput.value.length !== 16) {
+        showError(cardNumberInput, 'Invalid card number format. Must be 16 digits');
+        hasError = true;
+      } else {
+        removeError(cardNumberInput);
+      }
+
+      // Validate expiry date input
+      if (yyInput.value.length !== 2 || parseInt(mmInput.value) > 12 || parseInt(mmInput.value) < 0 || parseInt(yyInput.value) < 0) {
+        showError(mmInput, 'Invalid expiry date format or month value');
+        hasError = true;
+      } else {
+        removeError(mmInput);
+      }
+
+      // Validate CVC input
+      if (cvcInput.value.length !== 3) {
+        showError(cvcInput, 'Invalid CVC format. Must be 3 digits');
+        hasError = true;
+      } else {
+        removeError(cvcInput);
+      }
+
+      // If no error, update card details
+      if (!hasError) {
+        updateCardDetails();
+        document.querySelector('.C2').style.display = 'none';
+        document.querySelector('.C3').style.display = 'block';
+      }
+    }
+
+    function backForm() {
+      document.querySelector('.C3').style.display = 'none';
+      document.querySelector('.C2').style.display = 'block';
+
+    }
+
+    // Function to show error message and apply error styling
+    function showError(input, message) {
+      const errorElement = document.createElement('div');
+      errorElement.className = 'error';
+      errorElement.innerText = message;
+
+      input.classList.add('error-border');
+      input.parentNode.appendChild(errorElement);
+    }
+
+    // Function to remove error message and styling
+    function removeError(input) {
+      const errorElement = input.parentNode.querySelector('.error');
+      if (errorElement) {
+        input.parentNode.removeChild(errorElement);
+        input.classList.remove('error-border');
+      }
+    }
+
+    // Add event listeners to form inputs for real-time validation
+    const formInputs = document.querySelectorAll('input');
+    formInputs.forEach(input => {
+      input.addEventListener('input', function () {
+        removeError(input);
+        updateCardDetails();
+      });
+    });
+
+    // Add event listener to form submission
+    document.getElementById('send').addEventListener('click', validateForm);
+
+    // comback to form submission
+    document.getElementById('done').addEventListener('click', backForm);
+  </script>
+
+
+
+</body>
+
+</html>
